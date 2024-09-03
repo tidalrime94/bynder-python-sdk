@@ -52,6 +52,22 @@ class AssetBankClient:
             f'/v4/media/{media_id}/',
             data=query or {}
         )
+    def add_mpo_to_asset(self, query: dict =None):
+          """ Updates the media properties (metadata) for a specific media id using this 
+          endpoint: https://bynder.docs.apiary.io/#reference/assets/asset-metaproperty-options/add-metaproperty-options
+        """
+        return self.session.post(
+            f'/media/options/',
+            json=query or {}
+        )    
+    def delete_mpo_on_asset(self, query: dict =None):
+         """ Updates the media properties (metadata) for a specific media id using this 
+          endpoint: https://bynder.docs.apiary.io/#reference/assets/asset-metaproperty-options/delete-metaproperty-options
+        """
+        return self.session.delete(
+            f'/media/options/',
+            json=query or {}
+        )
 
     def delete_media(self, media_id):
         """ Deletes a media asset.
